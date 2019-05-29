@@ -1,1 +1,3 @@
+# This is the machine where Conan is running, so use the default settings
+
 include(default)
