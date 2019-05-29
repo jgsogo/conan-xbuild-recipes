@@ -6,7 +6,7 @@ from conans.errors import ConanInvalidConfiguration
 
 
 class NodejsInstallerConan(ConanFile):
-    name = "nodejs_installer"
+    name = "nodejs"
     version = "10.15.0"
     description = "nodejs binaries for use in recipes"
     topics = ("conan", "node", "nodejs")

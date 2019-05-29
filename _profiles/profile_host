@@ -1,0 +1,10 @@
+[settings]
+os=Emscripten
+arch=wasm
+compiler=clang
+compiler.version=6.0
+compiler.libcxx=libc++
+[options]
+[build_requires]
+emsdk/1.38.29@xbuild/testing
+[env]
