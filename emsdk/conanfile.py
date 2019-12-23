@@ -8,13 +8,6 @@ import os
 class EmSDKInstallerConan(ConanFile):
     name = "emsdk"
     version = "1.38.29"
-    description = "Emscripten is an Open Source LLVM to JavaScript compiler"
-    url = "https://github.com/bincrafters/conan-emsdk_installer"
-    homepage = "https://github.com/kripken/emscripten"
-    author = "Bincrafters <bincrafters@gmail.com>"
-    topcis = ("conan", "emsdk", "emscripten", "installer", "sdk")
-    license = "MIT"
-    exports = ["LICENSE.md"]
 
     settings = {
         "os": ['Windows', 'Linux', 'Macos'],
@@ -24,7 +17,18 @@ class EmSDKInstallerConan(ConanFile):
     requires = "nodejs/10.15.0@xbuild/testing"
     _source_subfolder = "source_subfolder"
 
+    default_options = {"gtest:shared": True}
+
+    #def build_requirements(self):
+    #    self.build_requires("gtest/1.8.1@bincrafters/stable", context="host")
+
+    def requirements(self):
+        self.requires("gtest/1.8.1@bincrafters/stable")
+
     def source(self):
+        print("*"*20)
+        print(self.settings_host.os)
+        print(self.settings_build.os)
         commit = "4eeff61368e7471ae543474e2c36869def9a29fc"
         sha256 = "cb0cce2a985c7b244f80f39be0f328ed2d68e0eb42cdf69fb5b50d68dd68a00f"
         source_url = 'https://github.com/emscripten-core/emsdk/archive/%s.tar.gz' % commit
